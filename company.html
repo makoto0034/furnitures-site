@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company | Furniture Design</title>
+    <link rel="stylesheet" href="assets/css/destyle.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="section">
+        <a href="index.html"><h1>Furniture Design</h1></a>
+        <div class="hamuburger-menu">
+            <input type="checkbox">
+            <div class="modal">
+                <ul>
+                    <li><a href="product_list.html">PRODUCTS</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="company.html">COMPANY</a></li>
+                    <li><a href="mailto:xxxx@xxx.xxx.xxx.com?subject=お問合せ">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main id="company" class="section">
+        <div class="company-container">
+            <h1 class="main-title">company</h1>
+            <dl>
+                <dt>社名</dt>
+                <dd>株式会社ファニチャーデザイン</dd>
+                <dt>住所</dt>
+                <dd>〒107-0062 東京都港区南青山１丁目××××××</dd>
+                <dt>設立</dt>
+                <dd>XXXX年XX月</dd>
+                <dt>資本金</dt>
+                <dd>XXXX万円</dd>
+                <dt>従業員数</dt>
+                <dd>XX名</dd>
+                <dt>事業内容</dt>
+                <dd>
+                    家具、インテリアの企画・生産<br>
+                    家具、インテリアの販売<br>
+                    店舗の企画・デザイン・設計
+                </dd>
+            </dl>
+            
+            <div id="map" style="width: 100%; height: 300px;"></div>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQQ8y6IByJ_Ea2ttx_wUZFouzD6SMsyjQ&callback=initMap"></script>
+            <script>
+            function initMap() {
+                var geocoder = new google.maps.Geocoder();
+                var address = "東京都港区南青山";
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == 'OK') {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                    center: results[0].geometry.location,
+                    zoom: 16
+                    });
+                    var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                    });
+                } else {
+                    console.log('Geocode was not successful for the following reason: ' + status);
+                }
+                });
+            }
+            </script>
+        </div>
+    </main>
+    <footer class="section">
+        <ul>
+            <li>INSTAGRAM</li>
+            <li>TWITTER</li>
+            <li>FACEBOOK</li>
+        </ul>
+        <p>&copy; Furniture Design</p>
+    </footer>
+</body>
+</html>
